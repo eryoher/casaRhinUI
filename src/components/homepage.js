@@ -1,17 +1,25 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { Carousel } from 'react-responsive-carousel';
-import ReactDOM from 'react-dom';
 import 'react-responsive-carousel/lib/styles/carousel.css';
+import * as actions from '../actions';
+
 
 class HomePage extends Component {
 
-  renderCarousel(){
 
+  componentWillMount(){
+    this.props.fetchCarouselData();
+  }
+
+
+  renderCarousel(){
     var gallerie = this.props.carousel;
-    if (gallerie.length){
+
+    if ( gallerie !== undefined && gallerie.length){
       return (
           <Carousel
+            emulateTouch
             showArrows={true}
             width = "100%"
             autoPlay={true}
@@ -36,12 +44,12 @@ class HomePage extends Component {
       if(picture.active){
         rows.push(
           <div key={key} className="conten-slide">
-            <div key={key} className="my-slide-content" style={{backgroundImage: `url(${picture['imgUrl']})`}}>
-              <div className="d-flex align-items-center justify-content-center slogan-content">                
+            <div key={key} className="my-slide-content" style={{backgroundImage: `url(${picture['pathImg']})`}}>
+              <div className="d-flex align-items-center justify-content-center slogan-content">
                   <div className="slogan">
                     <div className="title">
-                      {picture['slogan']}    
-                    </div>                    
+                      {picture['slogan']}
+                    </div>
                     <div className="d-flex bd-highlight">
                       <div className="p-2 flex-fill bd-highlight bottom-slogan"></div>
                       <div className="p-2 flex-fill bd-highlight bottom-slogan"></div>
@@ -49,7 +57,7 @@ class HomePage extends Component {
                       <div className="p-2 flex-fill bd-highlight bottom-slogan"></div>
                       <div className="p-2 flex-fill bd-highlight "></div>
                     </div>
-                  </div>                
+                  </div>
               </div>
             </div>
           </div>
@@ -71,8 +79,8 @@ class HomePage extends Component {
 
 function mapStateToProps(state){
   return {
-    carousel : state.carousel
+    carousel : state.data.carousels
   }
 }
 
-export default connect (mapStateToProps)(HomePage);
+export default connect (mapStateToProps, actions)(HomePage);

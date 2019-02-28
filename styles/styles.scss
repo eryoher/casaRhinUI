@@ -2,29 +2,697 @@
 @import '../node_modules/breakpoint-sass/stylesheets/breakpoint';
 @import 'functions';
 
-body{    
+body{
     #CasaDelRhin{
+        .blur{
+            filter: blur(6px);
+        }
+        a {
+            text-decoration: none !important;
+        }
+        .facebook{
+            &:hover{
+                background-image: url('../img/facebook_icon.png') !important;
+            }
+        }
+        .instagram{
+            &:hover{
+                background-image: url('../img/instagram_icon.png') !important;
+            }
+        }
+
+        input:-webkit-autofill {
+            box-shadow: 0 0 0 30px white inset;
+        }
+
+        .hideMe{
+            -webkit-animation: seconds 1.0s forwards;
+            -webkit-animation-iteration-count: 1;
+            -webkit-animation-delay: 5s;
+            animation: seconds 1.0s forwards;
+            animation-iteration-count: 1;
+            animation-delay: 5s;
+            position: relative;
+
+            @keyframes FadeAnimation {
+                0% {
+                  opacity: 1;
+                  visibility: visible;
+                }
+
+                100% {
+                  opacity: 0;
+                  visibility: hidden;
+                }
+              }
+        }
+
+        @keyframes FadeAnimation {
+            0% {
+              opacity: 1;
+              visibility: visible;
+            }
+
+            100% {
+              opacity: 0;
+              visibility: hidden;
+            }
+          }
         max-width: $width-page;
         padding-left: 0px;
         padding-right: 0px;
+
+        .confirm{
+            width: 100%;
+            max-width: 1200px;
+            height: 100%;
+            top: 0px;
+            position: absolute;
+            background-color: #050606a3;
+            border: solid 1px #2d1e1dc2;
+            .content-confirm{
+                width: 80%;
+                height: 80%;
+                margin: 0px auto;
+                .body-confirm{
+                    border: 3px solid #fff;
+                    height: 50%;
+                    width: 80%;
+                    margin-top: 30%;
+                    background-color: #e6e3e3ad;
+                    @include breakpoint( max-width 600px ) {
+                        width: 90%;
+                        height: 61%;
+                    }
+                    @include breakpoint( $min-page-width-sm ) {
+                        height: 61%;
+                    }
+
+                    .message{
+                        @include BebasNBold(30pt);
+                        line-height: 0.9;
+                        @include breakpoint( $min-page-width-sm ) {
+                            @include BebasNBold(18pt);
+                        }
+                        @include breakpoint( max-width 867px ) {
+                            @include BebasNBold(18pt);
+                        }
+
+                    }
+                    .logo{
+                        @include breakpoint( max-width 600px ) {
+                            width: 100%;
+                        }
+                    }
+                    .btn-rhin{
+                        @include BebasNBold(22pt);
+                        background-color: #131314ff;
+                        color: #fff;
+                        width: 120px;
+                        @include breakpoint( $min-page-width-sm ) {
+                            @include BebasNBold(15pt);
+                            width: 80px;
+                        }
+                        @include breakpoint( max-width 460px ) {
+                            @include BebasNBold(15pt);
+                            width: 80px;
+                        }
+                        &:hover{
+                            background-color: #ba1a31ff;
+                        }
+                    }
+                }
+            }
+        }
+
         .content-body{
-            min-height: 800px;
+            min-height: 600px;
+        }
+
+        .contact-container{
+            background-image: url('../img/backgroud-contact.png');
+            @include backgroundImage();
+            background-position: bottom;
+            min-height: $height-content-page;
+            .address{
+                width: 85%;
+                margin: 0px auto;
+                .title{
+                    @include BebasNBold(28pt);
+                    color: #fff;
+                    background-color: #1e1e1fff;
+                    width: 80%;
+                    margin: 0px auto;
+                }
+                .map{
+                    text-align: center;
+                    height: 250px;
+                    margin-top: 3%;
+                    border: 7px solid;
+                    margin-bottom: 30px;
+                }
+                .content{
+                    @include RobotoLight(11pt);
+                    text-align: center;
+                    line-height: 0.6;
+                    span{
+                        @include RobotoMedium(11pt);
+                    }
+                }
+            }
+            .contacts{
+                width: 85%;
+                text-align: center;
+                margin: 0px auto;
+                .title{
+                    @include RobotoMedium(11pt);
+                }
+                .email{
+                    @include RobotoLight(11pt);
+                }
+                .address-text{
+                    border-top: 2px solid #000;
+                    @include RobotoLight(11pt);
+                    line-height: 0.5;
+                }
+
+            }
+
+            .form-body{
+                background: rgba(38, 38, 38, 252);
+                max-width: 515px;
+                margin: 0px auto;
+                .form-title{
+                    width: 90%;
+                    @include RobotoMedium(16pt);
+                    color: #fff;
+                    border-bottom: solid 1px #fff;
+                    padding-bottom: 5px;
+                    margin: 0px auto;
+                    margin-bottom: 15px;
+                }
+                .terms{
+                    color: #fff;
+                }
+                .form-group{
+                    border: solid 1px #fff;
+                    padding: 5px;
+                    background: #fff;
+                    width: 80%;
+                    margin: 0px auto;
+                    margin-bottom: 10px;
+                    margin-top: 17px;
+
+                    .alert-danger{
+                        padding: 0px;
+                        height: 30px;
+                    }
+                    .form-control{
+                        border: 1px solid #262626ff;
+                        @include RobotoLight(14pt);
+                        color: #262626ff;
+                        border-radius: 0px;
+                    }
+                }
+                .btn-rhin{
+                    background-color: #b90b25ff;
+                    color: #fff;
+                    @include BebasNRegular(17pt);
+                    padding-left: 25px;
+                    padding-right: 25px;
+                }
+            }
+        }
+
+        .dealers-container{
+            background-image: url('../img/background_dealers.png');
+            @include backgroundImage();
+            min-height: $height-content-page;
+            .dealer-list{
+                background-image: url('../img/dearler_div.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+                min-height: 100%;
+                margin-top: 8%;
+                border: 1px solid transparent;
+                background-position: center;
+                color: #fff;
+                @include breakpoint( $max-page-width-md ) {
+                    min-height: 547px;
+                    margin-top: 8px;
+                }
+                @include breakpoint( $min-page-width-md ) {
+                    padding-top: 9%;
+                }
+                .title{
+                    @include BebasNBold(56pt);
+                    -webkit-transform: rotate(-3deg);
+                    margin-top: 10%;
+                    @include breakpoint( max-width 518px ) {
+                        @include BebasNBold(48pt);
+                        margin-top: 18%;
+                    }
+                    @include breakpoint( max-width 430px ) {
+                        @include BebasNBold(32pt);
+                        margin-top: 50%;
+                    }
+
+                    @include breakpoint( max-width 414px ) {
+
+                        margin-top: 28%;
+                    }
+
+                    @include breakpoint( max-width 375px ) {
+                        @include BebasNBold(32pt);
+                        margin-top: 35%;
+                    }
+
+                    @include breakpoint( $min-page-width-sm ) {
+                        @include BebasNBold(27pt);
+                        margin-top: 50%;
+                    }
+
+                }
+                .title-2{
+                    @include BebasNBold(43pt);
+                    -webkit-transform: rotate(-3deg);
+                    margin-top: 12%;
+
+                    @include breakpoint( max-width 414px ) {
+                        @include BebasNBold(32pt);
+                        margin-top: 28%;
+                    }
+
+                    @include breakpoint( max-width 375px ) {
+                        @include BebasNBold(32pt);
+                        margin-top: 35%;
+                    }
+
+                    @include breakpoint( $min-page-width-sm ) {
+                        @include BebasNBold(27pt);
+                        margin-top: 50%;
+                    }
+                }
+
+                .content{
+                    width: 60%;
+                    max-height: 262px;
+                    padding-top: 5%;
+                    margin: 0px auto;
+                    overflow: auto;
+                    &::-webkit-scrollbar{
+                        width: 7px;
+                    }
+                    &::-webkit-scrollbar-thumb{
+                       background: #686868ff;
+                       border-radius: 5px;
+                    }
+                    .item-dealer{
+                        width: 100%;
+                        @include RobotoLight(14pt);
+                        color: #1e1e1fff;
+                        text-align: center;
+                    }
+                }
+            }
+
+        }
+
+        .activities-container{
+            background-image: url('../img/background-activities.png');
+            background-repeat: repeat-y;
+            min-height: $height-content-page;
+            .title{
+                @include BebasNBold(68pt);
+            }
+
+            .slick-prev{
+                left: -13px;
+                &:before {
+                    color: #000;
+                }
+            }
+            .slick-next{
+                right: -13px;
+                &:before {
+                    color: #000;
+                }
+            }
+            .slick-dots{
+                bottom: 33%;
+                .slick-active {
+                    .dot-slick{
+                        background: #fff !important;
+                    }
+                }
+            }
+            .my-slide-content{
+                .slider-img{
+                    width: 100%;
+                }
+
+            }
+            .description{
+                @include RobotoLight(14pt);
+                text-align: justify;
+            }
+            .menu-activities{
+                border-right: 2px solid #262626ff;
+                min-height: 350px;
+                margin-top: 40%;
+                padding-right: 15%;
+                @include BebasNRegular(27pt);
+                text-align: center;
+                .menu{
+                    &:hover{
+                        @include BebasNBold(27pt);
+                        color: #fff;
+                        background-color: #262626ff;
+                        cursor: pointer;
+                    }
+                }
+                .actived{
+                    @include BebasNBold(27pt);
+                    color: #fff;
+                    background-color: #adadad;
+                    cursor: pointer;
+                }
+            }
+        }
+        .cocktail-container{
+            background-image: url('../img/background_content.png');
+            background-repeat: repeat-y;
+            min-height: $height-content-page;
+            .slick-prev{
+                &:before {
+                    color: #000;
+                    font-size: 30pt;
+                }
+            }
+            .slick-next{
+                right: 0px;
+                &:before {
+                    color: #000;
+                    font-size: 30pt;
+                }
+            }
+
+            .slick-dots{
+                .slick-active {
+                    .dot-slick{
+                        background: #000 !important;
+                    }
+                }
+            }
+
+            .title{
+                @include SunValley(120pt);
+            }
+            .content-receta{
+                max-height: 200px;
+                overflow: auto;
+                &::-webkit-scrollbar{
+                    width: 7px;
+                }
+                &::-webkit-scrollbar-thumb{
+                   background: #686868ff;
+                   border-radius: 5px;
+                }
+                .title{
+                    @include RobotoMedium(16pt);
+                }
+                .body-receta{
+                    ul{
+                        padding-left: 17px;
+                        padding-top: 7px;
+                    }
+                    @include RobotoLight(16pt);
+                }
+            }
+            .marco-sombra{
+                .content-marco{
+                    img{
+                        margin: 0px auto;
+                        min-height: 450px;
+                    }
+                    margin-top: 10%;
+                }
+            }
+            .definition{
+                .definition-body{
+                    @include RobotoLight(14pt);
+                    text-align: justify;
+                    span{
+                        @include RobotoBoldItalic(14pt);
+                    }
+                }
+                .definition-title{
+                    @include RobotoBold(14pt);
+                }
+
+            }
+        }
+        .sensations-container{
+            background-repeat: no-repeat;
+            background-size: contain;
+            min-height: $height-content-page;
+            @include breakpoint(max-width 991px) {
+                background-position: inherit;
+                min-height: auto;
+            }
+            .slick-prev{
+                &:before {
+                    color: #000;
+                }
+            }
+            .slick-next{
+                &:before {
+                    color: #000;
+                }
+            }
+            .title{
+                @include SunValley(100pt);
+                text-align: center;
+                line-height: 0.6;
+                padding-top: 5%;
+                @include breakpoint(max-width 550px) {
+                    @include SunValley(65pt);
+
+                }
+            }
+            .carousel-sensations{
+                width: 90%;
+                text-align: center;
+                margin: 0px auto;
+                padding-top: 2%;
+                .slick-dots{
+                    li{
+                        margin: 0 1px;
+                    }
+                    .slick-active {
+                        .dot-slick{
+                            background: #000 !important;
+                        }
+
+                    }
+                }
+                .content-slide{
+                    .content-img{
+                        height: 300px;
+                        border: solid 2px #252525ab;
+                        margin: 12px;
+                        padding: 12px;
+                        .my-slide-content{
+                            @include backgroundImage();
+                            padding: 10px;
+                            height: 100%;
+                            .cocktail-content{
+                                a {
+                                    text-decoration: none !important;
+                                    color: #fff;
+                                }
+                                height: 100%;
+                                color: #fff;
+                                .description{
+                                    @include RobotoMedium(10pt);
+                                    width: 80%;
+                                    border-bottom: solid 2px #fff;
+                                    margin: 0px auto;
+                                    text-align: justify;
+                                    margin-top: 50%;
+                                    line-height: 1.2;
+                                    @include breakpoint(max-width 1999px) {
+                                        margin-top: 40%;
+                                    }
+                                }
+                                .title{
+                                    @include BebasNBold(31pt);
+                                }
+                                .cocktail-mas{
+                                    @include BebasNRegular(10pt);
+                                    padding: 0px;
+                                    margin-top: -5px;
+                                    &:hover{
+                                        color: red;
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+
+                }
+            }
+        }
+
+        .item-container{
+            @include backgroundImage();
+            min-height: $height-content-page;
+            color: #fff;
+            .item-description{
+                padding-left: 15%
+            }
+            .title{
+                @include BebasNBold(42pt);
+                line-height: 0.8;
+                margin-top: 5%;
+                @include breakpoint($min-page-width-md) {
+                    @include BebasNBold(30pt);
+                }
+            }
+            .subtitle{
+                @include RobotoMedium(15pt);
+                .alcohol{
+                    @include RobotoLight(15pt);
+                }
+            }
+            .content{
+                background-image: url('../img/item-marco.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+                padding: 20px;
+                text-align: justify;
+                width: 75%;
+                min-height: 519px;
+                @include RobotoLight(13pt);
+
+                @include breakpoint($min-page-width-md) {
+                    width: 100%;
+                }
+                .notes-production{
+                    .title{
+                        width: 100%;
+                        @include RobotoMedium(22pt);
+                        padding-left: 10px;
+                        @include breakpoint($min-page-width-md) {
+                            @include RobotoMedium(14pt);
+                        }
+                    }
+                    .text-production{
+                        max-height: 300px;
+                        overflow: auto;
+                        padding-right: 18px;
+                        padding-left: 10px;
+                        &::-webkit-scrollbar{
+                            width: 7px;
+                        }
+                        &::-webkit-scrollbar-thumb{
+                           background: #fff;
+                           border-radius: 5px;
+                        }
+                    }
+                    .footer-content{
+                        .note-1{
+                            @include SunValley(33pt);
+                        }
+                        .note-2{
+                            @include RobotoMedium(11pt);
+                        }
+                        a {
+                            color: #fff !important;
+                        }
+                    }
+                }
+
+                .social-networks{
+                    width: 25px;
+                    height: 50px;
+                    position: absolute;
+                    left: 20%;
+                    @include breakpoint($max-page-width) {
+                        left: 20%;
+                    }
+                    @include breakpoint(max-width 568px) {
+                        left: 5%;
+                    }
+                    .icon{
+                        background-repeat: no-repeat;
+                        background-position: left;
+                        background-size: 20px;
+                        display: inline-block;
+                        margin: 5px;
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+            }
+        }
+
+        .product-container{
+            min-height: $height-content-page;
+            @include backgroundImage();
+
+            .title{
+                @include BebasNBold(65pt);
+                color: #fff;
+                @include breakpoint(max-width 480px) {
+                    @include BebasNBold(45pt);
+                }
+
+            }
+            .slick-slide img {
+                display: initial;
+            }
+            .slick-center {
+                -moz-transform: scale(1.08);
+                -ms-transform: scale(1.08);
+                -o-transform: scale(1.08);
+                -webkit-transform: scale(1.08);
+                opacity: 1;
+                transform: scaleY(1.05);
+            }
+
+
+            .product-content{
+                margin-bottom: 20px;
+                .title{
+                    color: #fff;
+                    text-align: center;
+                    @include BebasNBold(26pt);
+                }
+                .btn-rhin{
+                    @include BebasNRegular(11pt);
+                    color: #fff;
+                    border: 1px solid #fff;
+                    width: 25%;
+                }
+            }
+
+
         }
         .header-container{
             min-height: 128px;
             background-color: #b90b25ff;
-            padding-right: 10%;
-            padding-left: 10%;
+            padding-right: 5%;
+            padding-left: 5%;
             @include breakpoint(max-width 1166px) {
                 padding-right: 5%;
                 padding-left: 5%;
             }
-
             .navbar-brand {
                 @include breakpoint(max-width 360px) {
                     width: 50%;
                 }
-
                 .logo-header{
                     @include breakpoint(max-width 360px) {
                         width: 125%;
@@ -32,19 +700,21 @@ body{
                 }
 
             }
-            .menu{                                
+            .menu{
                 @include BebasNBold(15pt);
                 vertical-align: middle;
                 color: #fff;
                 margin-left: 10px;
-                margin-right: 10px;       
-                @include breakpoint(max-width 767px) {
-                    
-                }                
-                       
+                margin-right: 10px;
+                padding-left: 5px;
+                padding-right: 5px;
+                border: 1px solid #b90b25ff;
+                &:hover{
+                    border: 1px solid white;
+                }
             }
             .social-media{
-                margin-left: 5%;
+                margin-left: 3%;
                 border-left: solid 2px #fff;
                 padding-left: 2%;
                 @include breakpoint(max-width 1000px) {
@@ -60,7 +730,8 @@ body{
                     width: 20px;
                     height: 20px;
                 }
-            }  
+
+            }
         }
         .homepage-container{
             .presentation-mode{
@@ -68,9 +739,14 @@ body{
                     .my-slide-content{
                         background-repeat: no-repeat;
                         background-size: cover;
-                        min-height: $height-content-page;   
+                        min-height: $height-content-page;
                         width: 100%;
                         .slogan-content{
+                            background-color:#8885853d;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
                             height: 100%;
                             .slogan{
                                 .title{
@@ -78,37 +754,36 @@ body{
                                 }
                                 border: solid 3px white;
                                 border-bottom: 0px;
-                                background-color: #00000021;
                                 @include BebasNBold(72pt);
-                                color: #fff;                                
+                                color: #fff;
                                 padding-right: 15px;
-                                margin-top: 47%;
+                                margin-top: 28%;
                                 @include breakpoint($min-page-width-md) {
                                     @include BebasNBold(42pt);
-                                    margin-top: 80%;
+                                    margin-top: 60%;
                                 }
                                 .bottom-slogan {
                                     font-size: 9pt;
-                                    border-bottom: 3px solid #fff;                                                                        
+                                    border-bottom: 3px solid #fff;
                                 }
                             }
                         }
-                        
+
                     }
-                }    
-            }                         
+                }
+            }
 
         }
         .nosotros-container{
-            background-image: url('../img/background_content.png');
-            background-repeat: repeat;
+            background-image: url('../img/background_nosotros.png');
+            @include backgroundImage();
             min-height: $height-content-page;
             .nosotros-fundacion{
                 width: auto;
-                min-height: 300px; 
-                margin-top: 33%; 
+                min-height: 300px;
+                margin-top: 15%;
                 @include breakpoint($min-page-width-md) {
-                    margin-top: 10%; 
+                    margin-top: 10%;
                 }
 
                 @include backgroundImage();
@@ -137,11 +812,11 @@ body{
             .menu-productos{
                 @include backgroundImage();
                 width: 100%;
-                height: 661px; 
+                height: 529px;
                 padding: 18px;
-                margin-top: 10%;                
+                margin-top: 10%;
                 @include breakpoint($min-page-width-md) {
-                    height: 400px; 
+                    height: 400px;
 
                 }
                 .content-product{
@@ -150,14 +825,17 @@ body{
                     overflow: auto;
                     .item-product{
                         display: block;
-                        border: solid 1px #b90b25ff;
                         color: #fff;
-                        background-color: #b90b25ff;
                         @include BebasNBold(25pt);
                         padding-left: 15px;
                         padding-right: 15px;
                         padding-top: 10px;
-                    
+                        background-color: #8f9598ff;
+                        border: solid 1px #fff;
+                        &:hover{
+                            background-color: #b90b25ff;
+                            border: solid 1px #b90b25ff;
+                        }
                     }
                 }
             }
@@ -187,8 +865,8 @@ body{
 
                 line-height: 0.2;
             }
-        }            
+        }
     }
-    
+
 
 }

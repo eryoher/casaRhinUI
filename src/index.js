@@ -1,5 +1,6 @@
 import '../styles/styles.scss'
 import '../styles/functions.scss'
+import 'bootstrap/dist/css/bootstrap.min.css'; //para desarrollo
 
 import React from 'react';
 import { render } from 'react-dom';
@@ -17,6 +18,5 @@ const createStoreWithMiddleware = process.env.NODE_ENV == 'production' ? middlew
 render(
     <Provider store={createStoreWithMiddleware(reducers)}>
         <Router history={browserHistory} routes={routes} />
-        
     </Provider>
     , document.querySelector('#CasaDelRhin'));

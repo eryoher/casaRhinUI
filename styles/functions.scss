@@ -6,6 +6,21 @@
 }
 
 @font-face {
+    font-family: "RobotoMedium";
+    src: url('./fonts/Roboto/Roboto-Medium.ttf');
+}
+
+@font-face {
+    font-family: "RobotoBold";
+    src: url('./fonts/Roboto/Roboto-Bold.ttf');
+}
+
+@font-face {
+    font-family: "RobotoBoldItalic";
+    src: url('./fonts/Roboto/Roboto-BoldItalic.ttf');
+}
+
+@font-face {
     font-family: "RobotoNormal";
     src: url('./fonts/Roboto/Roboto-Regular.ttf');
 }
@@ -30,6 +45,16 @@
     src: url('./fonts/BebasNeue/BebasNeue_Regular.otf');
 }
 
+@font-face {
+    font-family: "SunValley";
+    src: url('./fonts/SunValley/Sun_Valley.ttf');
+}
+
+
+@mixin SunValley($size) {
+    font-size: $size;
+    font-family: SunValley;
+}
 
 @mixin BebasNBold($size) {
     font-size: $size;
@@ -39,6 +64,20 @@
 @mixin BebasNRegular($size) {
     font-size: $size;
     font-family: BebasNRegular;
+}
+
+@mixin RobotoMedium($size) {
+    font-size: $size;
+    font-family: RobotoMedium;
+}
+
+@mixin RobotoBold($size) {
+    font-size: $size;
+    font-family: RobotoBold;
+}
+@mixin RobotoBoldItalic($size) {
+    font-size: $size;
+    font-family: RobotoBoldItalic;
 }
 
 @mixin RobotoMediumItalic($size) {
@@ -68,6 +107,9 @@
 
 $width-page:1200px;
 $height-footer-page:185px;
-$height-content-page : 800px;
+$height-content-page : 600px;
 $min-page-md:676px;
 $min-page-width-md: max-width 767px;
+$max-page-width-md: max-width 991px;
+$max-page-width: max-width 1200px;
+$min-page-width-sm: max-width 320px;

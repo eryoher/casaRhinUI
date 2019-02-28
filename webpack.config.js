@@ -16,7 +16,7 @@ module.exports = {
     port: 3000,
     inline: true,
     historyApiFallback: true,
-    contentBase: './',    
+    contentBase: './',
     https: false
   },
   mode: 'development',
@@ -26,8 +26,8 @@ module.exports = {
         test: /\.css$/,
         use: [ 'style-loader', 'css-loader' ]
       },
-      { 
-        test: /\.scss$/, 
+      {
+        test: /\.scss$/,
         loaders: ['style-loader', 'css-loader?sourceMap', 'sass-loader?sourceMap']
       },
       {
@@ -36,13 +36,17 @@ module.exports = {
           exclude: /node_modules/
       },
       {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
         test: /\.html$/,
         loader: 'raw-loader'
       },
       {
           test: /\.(png|jpg)$/,
           loader: 'url-loader?limit=8192'
-      },      
+      },
       { test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'url-loader?limit=10000&minetype=application/font-woff' },
       { test: /\.woff2$/,
